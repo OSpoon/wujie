@@ -61,7 +61,16 @@
         <router-link to="/vite-sub/location">location</router-link>
         <router-link to="/vite-sub/contact">contact</router-link>
       </div>
-      <router-link to="/angular12">angular12</router-link>
+      <router-link to="/angular12">
+        angular12
+        <a-icon :class="['main-icon', { active: angular12Flag }]" type="caret-up" @click.native="handleFlag('angular12')"/>
+      </router-link>
+      <div class="sub-menu" v-show="angular12Flag">
+        <router-link to="/angular12-sub/home">home</router-link>
+        <router-link to="/angular12-sub/dialog">dialog</router-link>
+        <router-link to="/angular12-sub/location">location</router-link>
+        <router-link to="/angular12-sub/contact">contact</router-link>
+      </div>
       <router-link to="/all">all</router-link>
       <a-button class="menu-icon" type="primary" icon="unordered-list" size="large" @click.stop="active = !active" />
     </div>
@@ -82,6 +91,7 @@ export default {
       vue2Flag: this.$route.name === "vue2-sub",
       vue3Flag: this.$route.name === "vue3-sub",
       viteFlag: this.$route.name === "vite-sub",
+      angular12Flag: this.$route.name === "angular12-sub",
       degrade: window.Proxy,
     };
   },

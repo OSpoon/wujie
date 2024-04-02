@@ -12,6 +12,7 @@ import ViteSub from "../views/Vite-sub.vue";
 import Vue3 from "../views/Vue3.vue";
 import Vue3Sub from "../views/Vue3-sub.vue";
 import Angular12 from "../views/Angular12.vue";
+import Angular12Sub from "../views/Angular12-sub.vue";
 import Multiple from "../views/Multiple.vue";
 const basename = process.env.NODE_ENV === "production" ? "/demo-main-vue/" : "";
 
@@ -77,6 +78,11 @@ const routes = [
     path: "/angular12",
     name: "angular12",
     component: Angular12,
+  },
+  {
+    path: "/angular12-sub/:path",
+    name: "angular12-sub",
+    component: Angular12Sub,
   },
   {
     path: "/all",
