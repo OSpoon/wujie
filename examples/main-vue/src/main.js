@@ -114,6 +114,20 @@ setupApp({
   fetch: credentialsFetch,
   degrade,
   ...lifecycles,
+  html: fetch(hostMap("//localhost:7400/"), {
+    headers: {
+      Accept: "text/html",
+    },
+  })
+    .then((response) => {
+      if (response.status >= 400) {
+        throw new Error("加载异常" + response.status);
+      }
+      return response.text();
+    })
+    .catch((e) => {
+      return Promise.reject(e);
+    }),
 });
 
 setupApp({
